@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,8 +33,11 @@
                                                 <rect key="frame" x="0.0" y="83.333333333333343" width="390" height="83.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="音声再生"/>
+                                                <connections>
+                                                    <action selector="soundPlay:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jfS-oa-fia"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第一問" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-EF-yDT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第1問" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-EF-yDT">
                                                 <rect key="frame" x="0.0" y="166.66666666666666" width="390" height="83.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -54,18 +57,24 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yhh-JB-TYb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2e-Be-nua">
                                                 <rect key="frame" x="0.0" y="171" width="390" height="171"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tBz-wR-ZbA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0g-ep-MX7">
                                                 <rect key="frame" x="0.0" y="342" width="390" height="171"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
-                                                    <action selector="goNext:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qiZ-IM-3DJ"/>
+                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SAN-Vk-MUc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -83,6 +92,12 @@
                             <constraint firstItem="Elp-el-bCy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uwD-EN-7S6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="anserButton1" destination="6la-iP-bzc" id="C30-Wz-z8r"/>
+                        <outlet property="anserButton2" destination="q2e-Be-nua" id="n7M-fe-9ep"/>
+                        <outlet property="anserButton3" destination="h0g-ep-MX7" id="YQp-hz-dwV"/>
+                        <outlet property="numberOfProblems" destination="eLK-EF-yDT" id="duZ-xn-uoA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
