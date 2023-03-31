@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,11 +21,22 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終わり。スコア表示またあそんでね・" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-e3-zF1">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="683"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="603"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-h0-stm">
+                                        <rect key="frame" x="0.0" y="603" width="390" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="5R6-MW-uRm"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="continue"/>
+                                        <connections>
+                                            <action selector="continueGame:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hbV-ai-W15"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6m-iz-xJf">
                                         <rect key="frame" x="0.0" y="683" width="390" height="80"/>
                                         <constraints>
@@ -49,6 +60,10 @@
                             <constraint firstItem="S1f-F5-3wS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yyk-dl-q7i"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continueButton" destination="uoJ-h0-stm" id="i8V-x9-vu7"/>
+                        <outlet property="titleLabel" destination="qdu-e3-zF1" id="hhp-Rp-cjv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

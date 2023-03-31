@@ -23,7 +23,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BFo-Zl-EsX">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="すこあ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqC-mR-GRT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スコア" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqC-mR-GRT">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="83.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -32,7 +32,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="res-Up-dew">
                                                 <rect key="frame" x="0.0" y="83.333333333333343" width="390" height="83.333333333333343"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="音声再生"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="もう一度聞く"/>
                                                 <connections>
                                                     <action selector="soundPlay:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jfS-oa-fia"/>
                                                 </connections>
@@ -97,6 +97,7 @@
                         <outlet property="anserButton2" destination="q2e-Be-nua" id="n7M-fe-9ep"/>
                         <outlet property="anserButton3" destination="h0g-ep-MX7" id="YQp-hz-dwV"/>
                         <outlet property="numberOfProblems" destination="eLK-EF-yDT" id="duZ-xn-uoA"/>
+                        <outlet property="scoreLabel" destination="sqC-mR-GRT" id="YIk-qK-1B5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

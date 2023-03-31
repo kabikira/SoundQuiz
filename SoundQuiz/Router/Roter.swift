@@ -10,10 +10,10 @@ import UIKit
 final class Router {
     static let shared: Router = .init()
     private init() {}
-
+    
     private var window: UIWindow?
     func showRoot(window: UIWindow?) {
-
+        
         if !UserDefaults.standard.bool(forKey: "logined") {
             let vc = StartUpViewController.makeFromStoryboard()
             let nav = UINavigationController(rootViewController: vc)
@@ -38,12 +38,17 @@ final class Router {
         let vc = QuizViewController.makeFromStoryboard()
         show(from: from, next: vc)
     }
-    func showQuizExit(from: UIViewController) {
-        let vc = QuizExitViewController.makeFromStoryboard()
+    func showQuizExit(from: UIViewController, scoreCountModel: ScoreCountModel) {
+        let vc = QuizExitViewController.makeFromStoryboard(scoreCountModel: scoreCountModel)
         show(from: from, next: vc)
     }
     func showReStart() {
-//        UserDefaults.standard.set(false, forKey: "logined")
+        //        UserDefaults.standard.set(false, forKey: "logined")
+        // 最初から画面を構築しなおす
+        showRoot(window: window)
+    }
+    func ResetGame() {
+        UserDefaults.standard.set(false, forKey: "logined")
         // 最初から画面を構築しなおす
         showRoot(window: window)
     }
