@@ -18,50 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S1f-F5-3wS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjI-bl-mGA" userLabel="AnimationContainerView1">
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終わり。スコア表示またあそんでね・" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-e3-zF1">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="683"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-h0-stm">
-                                        <rect key="frame" x="0.0" y="683" width="390" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="5R6-MW-uRm"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                            </backgroundConfiguration>
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Continue">
-                                                    <attributes>
-                                                        <font key="NSFont" size="20" name="Helvetica"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="continueGame:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hbV-ai-W15"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S1f-F5-3wS">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="763"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終わり。スコア表示またあそんでね・" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-e3-zF1">
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="683"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-h0-stm">
+                                                <rect key="frame" x="0.0" y="683" width="390" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="5R6-MW-uRm"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                    </backgroundConfiguration>
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Continue">
+                                                            <attributes>
+                                                                <font key="NSFont" size="20" name="Helvetica"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="continueGame:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hbV-ai-W15"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="S1f-F5-3wS" firstAttribute="top" secondItem="QjI-bl-mGA" secondAttribute="top" id="IhB-aX-uhD"/>
+                                    <constraint firstAttribute="bottom" secondItem="S1f-F5-3wS" secondAttribute="bottom" id="aoC-zX-RGD"/>
+                                    <constraint firstAttribute="trailing" secondItem="S1f-F5-3wS" secondAttribute="trailing" id="hPI-tw-6T2"/>
+                                    <constraint firstItem="S1f-F5-3wS" firstAttribute="leading" secondItem="QjI-bl-mGA" secondAttribute="leading" id="jlL-tC-Rp2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="S1f-F5-3wS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="apX-CM-9oY"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="S1f-F5-3wS" secondAttribute="bottom" id="bdr-19-gvA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="S1f-F5-3wS" secondAttribute="trailing" id="qLH-ns-bpg"/>
-                            <constraint firstItem="S1f-F5-3wS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yyk-dl-q7i"/>
+                            <constraint firstItem="QjI-bl-mGA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Oo2-5A-REe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QjI-bl-mGA" secondAttribute="bottom" id="Wvv-nz-KZL"/>
+                            <constraint firstItem="QjI-bl-mGA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Zwo-hh-54c"/>
+                            <constraint firstItem="QjI-bl-mGA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nqG-6k-zCP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationContainerView1" destination="QjI-bl-mGA" id="ZPP-yM-S1Y"/>
                         <outlet property="continueButton" destination="uoJ-h0-stm" id="i8V-x9-vu7"/>
                         <outlet property="titleLabel" destination="qdu-e3-zF1" id="hhp-Rp-cjv"/>
                     </connections>
