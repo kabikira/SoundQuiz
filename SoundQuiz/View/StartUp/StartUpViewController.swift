@@ -15,6 +15,7 @@ class StartUpViewController: UIViewController {
     }
     @IBAction func goNext(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "logined")
+        
         Router.shared.showSecondTime(from: self)
         
     }

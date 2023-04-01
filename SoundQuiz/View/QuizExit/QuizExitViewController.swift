@@ -24,14 +24,11 @@ class QuizExitViewController: UIViewController {
     }
     
 
-    @IBAction func reSetUser(_ sender: Any) {
-        Router.shared.showReStart()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        titleLabel.text = "\(scoreCountModel.scoreCount.description)点"
+        titleLabel.text = "\(scoreCountModel.scoreCount.description)点/100点"
 
         // Do any additional setup after loading the view.
     }
