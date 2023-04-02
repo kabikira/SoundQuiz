@@ -26,7 +26,7 @@ class QuizExitViewController: UIViewController {
     private var scoreCountModel = ScoreCountModel(scoreCount: 0)
     // いらんかもメモリ食うからリセットした方がいいかな
     @IBAction func continueGame(_ sender: Any) {
-//        Router.shared.showReStart()
+        Router.shared.showReStart()
         
 
     }
