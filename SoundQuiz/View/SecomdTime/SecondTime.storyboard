@@ -58,6 +58,9 @@
                             <constraint firstItem="v7z-uR-zde" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Wka-XZ-yt9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="hwh-fs-eVm" id="5Um-v4-kRz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

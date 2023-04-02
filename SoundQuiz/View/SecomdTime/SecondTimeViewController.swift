@@ -11,6 +11,8 @@ import AVFoundation
 class SecondTimeViewController: UIViewController, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer?
 
+    @IBOutlet weak var startButton: UIButton!
+    
     static func makeFromStoryboard() -> SecondTimeViewController {
         let vc = UIStoryboard(name: "SecondTime", bundle: nil).instantiateInitialViewController() as! SecondTimeViewController
         return vc
@@ -19,7 +21,7 @@ class SecondTimeViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func goNext(_ sender: Any) {
         audioPlay()
-        
+        startButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             //ここに処理
             Router.shared.showQuiz(from: self)
