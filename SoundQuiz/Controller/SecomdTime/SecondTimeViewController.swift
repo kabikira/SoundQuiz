@@ -8,22 +8,20 @@
 import UIKit
 import AVFoundation
 
-class SecondTimeViewController: UIViewController, AVAudioPlayerDelegate {
-    var audioPlayer: AVAudioPlayer?
+class SecondTimeViewController: UIViewController {
+    private var audioPlayer: AVAudioPlayer?
 
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet private weak var startButton: UIButton!
     
     static func makeFromStoryboard() -> SecondTimeViewController {
         let vc = UIStoryboard(name: "SecondTime", bundle: nil).instantiateInitialViewController() as! SecondTimeViewController
         return vc
     }
     
-    
     @IBAction func goNext(_ sender: Any) {
         audioPlay()
         startButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            //ここに処理
             Router.shared.showQuiz(from: self)
         }
         
@@ -38,7 +36,7 @@ class SecondTimeViewController: UIViewController, AVAudioPlayerDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setting))
     }
     @objc func setting() {
-        let ac = UIAlertController(title: "アプリの説明を見ますか？", message: "`はい`を選ぶと説明画面にうつります", preferredStyle: .alert)
+        let ac = UIAlertController(title: "アプリの説明を見ますか？", message: "'はい'を選ぶと説明画面にうつります", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "はい", style: .default) { _ in
             Router.shared.ResetGame()
         })
@@ -62,7 +60,10 @@ class SecondTimeViewController: UIViewController, AVAudioPlayerDelegate {
         audioPlayer?.play()
     }
     
-    
+
+}
+
+extension SecondTimeViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             print("再生終了:SecondTimeViewController")

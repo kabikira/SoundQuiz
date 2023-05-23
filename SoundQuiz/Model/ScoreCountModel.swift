@@ -8,4 +8,8 @@
 import Foundation
 struct ScoreCountModel {
     var scoreCount: Int = 0
+
+    mutating func countUp() {
+        self.scoreCount += 10
+    }
 }

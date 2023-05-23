@@ -8,5 +8,8 @@
 import Foundation
 struct QuestionCountModel {
     var count: Int = 0
-    var questionCount5 = 5
+
+    mutating func countUp() {
+        self.count += 1
+    }
 }

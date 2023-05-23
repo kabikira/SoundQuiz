@@ -8,21 +8,20 @@
 import UIKit
 import AVFoundation
 
-class QuizViewController: UIViewController, AVAudioPlayerDelegate {
-    @IBOutlet var anserButton1: UIButton!
-    @IBOutlet var anserButton2: UIButton!
-    @IBOutlet var anserButton3: UIButton!
+class QuizViewController: UIViewController {
+    @IBOutlet private var anserButton1: UIButton!
+    @IBOutlet private var anserButton2: UIButton!
+    @IBOutlet private var anserButton3: UIButton!
     
-    @IBOutlet var scoreLabel: UILabel!
-    @IBOutlet var numberOfProblems: UILabel!
+    @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet private var numberOfProblems: UILabel!
     
-    var countries = [String]()
-    var correctAnswer = 0
-    var score = 0
-    var tapCount = 1
-    var audioPlayer: AVAudioPlayer?
-    private var questionCount = QuestionCountModel(count: 2)
-    private var scoreCountModel = ScoreCountModel(scoreCount: 0)
+    private var countries = ["ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ"]
+    private var correctAnswer = 0
+    private var tapCount = TapCountModel()
+    private var audioPlayer: AVAudioPlayer?
+    private var questionCount = QuestionCountModel()
+    private var scoreCountModel = ScoreCountModel()
     
     static func makeFromStoryboard() -> QuizViewController {
         let vc = UIStoryboard(name: "Quiz", bundle: nil).instantiateInitialViewController() as! QuizViewController
@@ -30,25 +29,25 @@ class QuizViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     override func viewDidLoad() {
-        print("a")
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(setting))
         
         anserButton1.tag = 0
         anserButton2.tag = 1
         anserButton3.tag = 2
         anserButton1.titleLabel?.font = .systemFont(ofSize: 60)
-        countries += ["ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ"]
+
         askQuestion(action: nil)
         
     }
     
     func askQuestion(action: UIAlertAction!) {
         
-        if questionCount.count == 0 {
+        if questionCount.count == 10 {
             Router.shared.showQuizExit(from: self, scoreCountModel: scoreCountModel)
         } else {
-            numberOfProblems.text = "第　\(tapCount.description)　問"
+            numberOfProblems.text = "第　\(tapCount.count.description)　問"
             scoreLabel.text = "スコア:\(scoreCountModel.scoreCount.description)/100"
             transformLabel()
             countries.shuffle()
@@ -60,8 +59,6 @@ class QuizViewController: UIViewController, AVAudioPlayerDelegate {
             setAudio(from: countries[correctAnswer])
             audioPlay()
         }
-    
-        
         
     }
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -71,33 +68,35 @@ class QuizViewController: UIViewController, AVAudioPlayerDelegate {
             
             setAudio(from: "Answer")
             audioPlay()
-            scoreCountModel.scoreCount += 10
-            tapCount += 1
-            questionCount.count -= 1
+            scoreCountModel.countUp()
+            tapCount.countUp()
+            questionCount.countUp()
             let ac = UIAlertController(title: "正解", message: "やったね！！", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             present(ac, animated: true)
-            
             
         } else {
             print("不正解:")
             
             setAudio(from: "Buzzer")
             audioPlay()
-            tapCount += 1
-            questionCount.count -= 1
+            tapCount.countUp()
+            questionCount.countUp()
             let ac = UIAlertController(title: "不正解", message: "答えは`\(countries[correctAnswer])`です！", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion(action:)))
             present(ac, animated: true)
         }
     }
 
-    
-    @IBAction func soundPlay(_ sender: Any) {
-        setAudio(from: countries[correctAnswer])
-        audioPlay()
+    @objc func setting() {
+        let ac = UIAlertController(title: "ゲームを中断してタイトルへ戻りますか?", message: "'はい'を選ぶとタイトル画面にうつります", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "はい", style: .default) { _ in
+            Router.shared.showReStart()
+        })
+        ac.addAction(UIAlertAction(title: "いいえ", style: .cancel))
+        present(ac, animated: true)
     }
-    
+
     func transformLabel() {
         UIView.animate(withDuration: 0.5, animations: {
             self.numberOfProblems.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -106,10 +105,16 @@ class QuizViewController: UIViewController, AVAudioPlayerDelegate {
                 self.numberOfProblems.transform = .identity
             })
         })
-                       
+
+    }
+
+    
+    @IBAction func soundPlay(_ sender: Any) {
+        setAudio(from: countries[correctAnswer])
+        audioPlay()
     }
     
-    
+
     func setAudio(from: String) {
         guard let url = Bundle.main.url(forResource: from, withExtension: "mp3") else { return }
         
@@ -125,13 +130,12 @@ class QuizViewController: UIViewController, AVAudioPlayerDelegate {
     func audioPlay() {
         audioPlayer?.play()
     }
-    
-    
+}
+extension QuizViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             print("再生終了:答え\(countries[correctAnswer])")
         }
     }
-    
 }
 

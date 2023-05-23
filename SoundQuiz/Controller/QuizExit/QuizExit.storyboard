@@ -18,19 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjI-bl-mGA" userLabel="AnimationContainerView1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjI-bl-mGA" userLabel="AnimationContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S1f-F5-3wS">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="S1f-F5-3wS">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終わり。スコア表示またあそんでね・" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-e3-zF1">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="730"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終わり。またあそんでね！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-e3-zF1">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="340"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyA-sQ-CJo">
+                                        <rect key="frame" x="0.0" y="340" width="390" height="390"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MyA-sQ-CJo" secondAttribute="height" id="m5e-cc-vcT"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-h0-stm">
                                         <rect key="frame" x="0.0" y="730" width="390" height="80"/>
                                         <constraints>
@@ -70,7 +76,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationContainerView1" destination="QjI-bl-mGA" id="ZPP-yM-S1Y"/>
+                        <outlet property="animationContainerView" destination="QjI-bl-mGA" id="paq-VH-IJ3"/>
                         <outlet property="continueButton" destination="uoJ-h0-stm" id="i8V-x9-vu7"/>
                         <outlet property="titleLabel" destination="qdu-e3-zF1" id="hhp-Rp-cjv"/>
                     </connections>
