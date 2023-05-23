@@ -7,8 +7,10 @@
 
 import UIKit
 import Lottie
+import AVFoundation
 
 class QuizExitViewController: UIViewController {
+    private var audioPlayer: AVAudioPlayer?
     
     @IBOutlet private var titleLabel: UILabel! {
         didSet {
@@ -63,9 +65,34 @@ class QuizExitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-
         lottiAnimation()
+        setAudio(from: "Gymnopedies")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.audioPlay()
+        }
 
 
+    }
+    func setAudio(from: String) {
+        guard let url = Bundle.main.url(forResource: from, withExtension: "mp3") else { return }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.delegate = self
+            audioPlayer?.prepareToPlay()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
+    func audioPlay() {
+        audioPlayer?.play()
+    }
+}
+extension QuizExitViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+            print("再生終了")
+        }
     }
 }

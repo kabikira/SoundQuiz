@@ -10,6 +10,7 @@ import AVFoundation
 
 class SecondTimeViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
+    
 
     @IBOutlet private weak var startButton: UIButton!
     
@@ -19,6 +20,7 @@ class SecondTimeViewController: UIViewController {
     }
     
     @IBAction func goNext(_ sender: Any) {
+        setAudio(from: "Start")
         audioPlay()
         startButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -31,7 +33,8 @@ class SecondTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        setAudio(from: "Start")
+        setAudio(from: "Nocturne")
+        audioPlay()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setting))
     }

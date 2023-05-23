@@ -22,6 +22,7 @@ class QuizViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
     private var questionCount = QuestionCountModel()
     private var scoreCountModel = ScoreCountModel()
+
     
     static func makeFromStoryboard() -> QuizViewController {
         let vc = UIStoryboard(name: "Quiz", bundle: nil).instantiateInitialViewController() as! QuizViewController
