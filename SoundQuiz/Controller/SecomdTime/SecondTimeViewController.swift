@@ -33,7 +33,7 @@ class SecondTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        setAudio(from: "Nocturne")
+        setAudio(from: "Gymnopedies")
         audioPlay()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setting))

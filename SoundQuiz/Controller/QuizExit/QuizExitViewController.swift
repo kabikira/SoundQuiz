@@ -66,7 +66,7 @@ class QuizExitViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         lottiAnimation()
-        setAudio(from: "Gymnopedies")
+        setAudio(from: "Nocturne")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.audioPlay()
         }
