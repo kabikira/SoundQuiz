@@ -7,5 +7,6 @@ target 'SoundQuiz' do
 
   # Pods for SoundQuiz
   pod 'lottie-ios'
+  pod 'LicensePlist'
 
 end
