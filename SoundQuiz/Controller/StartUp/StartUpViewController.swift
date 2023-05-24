@@ -10,7 +10,10 @@ import AVFoundation
 
 class StartUpViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
-    
+
+    @IBOutlet private weak var doneButton: UIButton!
+
+
     static func makeFromStoryboard() -> StartUpViewController {
         let vc = UIStoryboard(name: "StartUp", bundle: nil).instantiateInitialViewController() as! StartUpViewController
         return vc
@@ -18,6 +21,7 @@ class StartUpViewController: UIViewController {
     @IBAction func goNext(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "logined")
         audioPlay()
+        doneButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             Router.shared.showSecondTime(from: self)
         }
@@ -27,7 +31,7 @@ class StartUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        setAudio(from: "Start")
+        setAudio(from: "get_se")
 
     }
     func setAudio(from: String) {

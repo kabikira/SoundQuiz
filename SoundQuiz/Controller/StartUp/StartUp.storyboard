@@ -77,6 +77,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wDY-tR-MWw" secondAttribute="bottom" id="ofd-Cr-NQV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="Z25-dk-EGJ" id="Vck-6q-plF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
