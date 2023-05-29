@@ -46,6 +46,7 @@ perspectivev3-file
 
 #CocoaPodsでインストールしたライブラリのデータ。
 Pods/*
+*.xcworkspace
 
 
 #Carthageでインストールしたライブラリのデータ。
