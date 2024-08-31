@@ -6,7 +6,13 @@
 <img width="150" src="https://github.com/user-attachments/assets/9daca583-c6ef-49f3-b8cb-c4bef37254f3">
 <img width="150" src="https://github.com/user-attachments/assets/0214badc-88b2-40e0-bd39-60ca36124d03">  
 
+## 作成理由  
+UIKitでMVCの理解するためにクイズアプリを作成。
+
+## 工夫した点
 設計　MVC  
 外部ライブラリ　CocoaPodsを使用しLicensePlist、lottie-ios  
 画面遷移　Router  
-Figmaでスクリーンショット作成
+Figmaでスクリーンショット作成  
+AVAudioPlayerを使用して音声再生  
+得点ごとに異なるアニメーションを表示させユーザー体験を向上
